@@ -21,9 +21,11 @@ export const linksRelations = relations(links, ({ one }) => ({
   owner: one(users, {
     fields: [links.ownerId],
     references: [users.id],
+    relationName: 'links_to_owner',
   }),
   folders: one(folders, {
     fields: [links.folderId],
     references: [folders.id],
+    relationName: 'links_to_folders',
   }),
 }))

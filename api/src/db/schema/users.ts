@@ -2,6 +2,7 @@ import { relations, sql } from 'drizzle-orm'
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
 import { folders } from './folders'
+import { links } from './links'
 
 export const users = sqliteTable('users', {
   id: text('id')
@@ -18,5 +19,6 @@ export const users = sqliteTable('users', {
 })
 
 export const userRelations = relations(users, ({ many }) => ({
-  folders: many(folders, { relationName: 'user_folders' }),
+  folders: many(folders, { relationName: 'folders_to_owner' }),
+  links: many(links, { relationName: 'links_to_owner' }),
 }))

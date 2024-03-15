@@ -3,6 +3,8 @@ import { drizzle } from 'drizzle-orm/bun-sqlite'
 
 import { env } from '@/env'
 
-const sqlite = new Database(env.DB_URL)
+import * as schema from './schema'
 
-export const db = drizzle(sqlite)
+const sqlite = new Database(`${import.meta.dir}/${env.DB_URL}`)
+
+export const db = drizzle(sqlite, { schema })

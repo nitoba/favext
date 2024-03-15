@@ -4,10 +4,13 @@
   "scripts": {
     "db:generate": "drizzle-kit generate:sqlite",
     "db:migrate": "bun src/db/migrate.ts",
-    "dev": "bun run --watch src/index.ts"
+    "db:studio": "drizzle-kit studio",
+    "dev": "bun run --watch src/server.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.5.6",
+    "@lucia-auth/adapter-drizzle": "^1.0.4",
+    "arctic": "^1.2.1",
     "drizzle-orm": "^0.30.2",
     "elysia": "latest"
   },
